@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'  # Map port 3000 on the host to port 3000 in the container
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/Api-Testing-Docker # Update with your database name
+    networks:
+      - my_network
+
+  mongo:
+    image: mongo:6
+    ports:
+      - '27017:27017'  # Expose MongoDB's default port
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - my_network
+
+networks:
+  my_network:
+
+volumes:
+  mongo_data:
