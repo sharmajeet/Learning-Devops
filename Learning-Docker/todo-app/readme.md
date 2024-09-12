@@ -1,6 +1,6 @@
 # MERN To-Do Application
 
-![To-Do List GIF](url-to-your-gif) 
+![To-Do List GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZG5yYzFtNzUzdDRkbDFqbTI3ZTFpbDhjYm1oZDUzZXhpZDgwNjA4OCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/q7UpJegIZjsk0/giphy.gif) 
 
 This project is a full-stack To-Do application built using the MERN stack (MongoDB, Express, React, Node.js). The application allows users to create, view, update, and delete to-do items. The project is containerized using Docker and managed with Docker Compose for easy deployment.
 
