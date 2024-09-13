@@ -27,25 +27,45 @@ const TodoList = () => {
   };
 
   return (
-    <div
-      className='flex h-screen w-screen flex-col bg-gray-300 justify-center items-center gap-3 p-4'>
-      <h1 className='text-5xl pb-11 font-semibold  underline'>To-Do List</h1>
+    <div className="flex flex-col items-center justify-center h-screen w-screen bg-gradient-to-br from-gray-800 to-gray-900 p-6 gap-6">
+    <h1 className="text-4xl font-bold text-white underline">To-Do List</h1>
+    
+    <div className="flex items-center w-full max-w-md">
       <input
-        className='text-pretty font-medium p-3 shadow-inner shadow-black capitalize content-stretch px-9'
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Add a new to-do"
+        onKeyDown={(e) => e.key === 'Enter' && addTodo()} 
+        className="flex-1 p-3 text-lg bg-gray-700 text-white border border-gray-600 rounded-l-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder-gray-400"
       />
-      <button className='px-8 py-3 mt-3 text-2xl capitalize shadow-2xl bg-green-600' onClick={addTodo}>Add</button>
-      <ul className='border border-black p-11  gap-2  text-white text-2xl capitalize  mt-4'>
-        {todos.map((todo) => (
-          <li className='mb-1 min-w-screen' key={todo._id}>
-            {todo.title} | <button className='bg-red-700 px-2 py-1' onClick={() => deleteTodo(todo._id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+      <button
+        onClick={addTodo}
+        className="px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-r-md hover:bg-blue-700 shadow-lg transition duration-300"
+      >
+        Add
+      </button>
     </div>
+  
+    <ul className="w-full max-w-md mt-4 space-y-3">
+      {todos.map((todo) => (
+        <li
+          key={todo._id}
+          className="flex justify-between items-center p-3 text-xl text-white bg-gray-700 rounded-md shadow-sm border border-gray-600"
+        >
+          <span className="flex-1">{todo.title}</span>
+          <button
+            onClick={() => deleteTodo(todo._id)}
+            className="px-3 py-1 text-sm font-medium text-white bg-red-600 rounded hover:bg-red-700 transition duration-300"
+          >
+            Delete
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+  
+
   );
 };
 
